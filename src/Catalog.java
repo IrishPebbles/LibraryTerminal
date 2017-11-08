@@ -9,6 +9,38 @@ import java.util.ArrayList;
 
 public class Catalog {
 	
+	
+	// THIS METHOD IS TO DETERMINE IF A BOOK IS CHECKED OUT. IF NOT, TO CHECK IT OUT
+	public static ArrayList bookCheckout(String input, ArrayList<String> arrayList1) {
+
+		input = input.toLowerCase();
+		String tempValue;
+
+		for (int i = 0; i < arrayList1.size(); i++) {
+			tempValue = arrayList1.get(i);
+
+			if (tempValue.contains(input)) {
+				if (tempValue.contains("checked out")) {
+					System.out.println(arrayList1.get(i) + " is already checked out!");
+					return arrayList1;
+				}
+				System.out.println("you checked out " + input);
+				arrayList1.remove(i);
+				return arrayList1;
+			}
+
+		}
+
+		System.out.println("That wasn't an option!");
+
+		return arrayList1;
+	}
+	
+	
+	
+	
+	
+	
 	public static void readFromFile(String nameOfFile) {
 		Path writeFile = Paths.get(nameOfFile);
 		File file = writeFile.toFile();
