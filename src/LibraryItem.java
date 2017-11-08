@@ -2,18 +2,22 @@
 public abstract class LibraryItem {
 String name;
 String idNum;
-String status; //checked out or returned value 
+String status; //checked out or returned value. if returned " " 
+String date; // date if the book is checked out or not
 
 
-LibraryItem() {
-}
+
+public abstract String LibraryItem(); 
 
 
-public LibraryItem(String name, String idNum, String checkOut, String return1) {
+
+public LibraryItem(String name, String idNum, String status, String date) {
 	super();
 	this.name = name;
 	this.idNum = idNum;
-	this.status = checkOut;
+	this.status = status;
+	this.date = date;
+
 	
 }
 
@@ -48,13 +52,19 @@ public String getStatus() {
 
 
 
-public void setStatus(String checkOut) {
+public void setStatus(String status) {
 	this.status = status;
 }
 
 
 
+public void getDate(String date) {
+	this.date = date;
+}
 
+public String getdate() {
+	return date;
+}
 
 
 
