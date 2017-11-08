@@ -19,6 +19,33 @@ public class Validator {
 	 *            prompt to display to the user
 	 * @return true for yes and false for no
 	 */
+	
+	
+	// THIS METHOD WILL BE USED TO CHECK IF BOOKS ARE CHECKED OUT, AND THEN REMOVE IT IF IT ISN'T
+	public static void bookChecker(String prompt) {
+			prompt = prompt.toLowerCase();
+			int checkWords = prompt.split("checked").length -1;
+			if (checkWords > 0) {
+				System.out.println("This book is currently checked out, sorry");
+			}
+			
+			else {
+				System.out.println("You just checked out the book!");
+				//TODO remove from array code here
+			}
+				
+				
+		}
+	////////////////////////
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static boolean getYOrN(Scanner sc, String prompt) {
 		System.out.print(prompt);
 
