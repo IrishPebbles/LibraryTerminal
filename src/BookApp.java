@@ -60,7 +60,7 @@ public class BookApp {
 				Catalog.bookCheckout(userInput, bookList);
 				break;
 			case 5:
-				menuPrompt = " \n"; //TODO: figure out what this looks like
+				menuPrompt = "Please select a book to return\n"; //TODO: figure out what this looks like
 				userInput = Validator.getString(scnr, menuPrompt);
 				Catalog.returnABook(userInput, bookList);
 				break;
