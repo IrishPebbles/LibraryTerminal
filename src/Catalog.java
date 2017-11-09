@@ -10,25 +10,27 @@ import java.util.ArrayList;
 public class Catalog {
 	
 	
-	// THIS METHOD IS TO DETERMINE IF A BOOK IS CHECKED OUT. IF NOT, TO CHECK IT OUT
-	public static ArrayList bookCheckout(String input, ArrayList<String> arrayList1) {
+	// THIS METHOD IS TO DETERMINE IF A LIBRARY ITEM IS CHECKED OUT. IF NOT, TO CHECK IT OUT
+	public static ArrayList bookCheckout(String input, ArrayList<LibraryItem> arrayList1) {
 
 		input = input.toLowerCase();
-		String tempValue;
+		
 
 		for (int i = 0; i < arrayList1.size(); i++) {
-			tempValue = arrayList1.get(i);
-
-			if (tempValue.contains(input)) {
-				if (tempValue.contains("checked out")) {
-					System.out.println(arrayList1.get(i) + " is already checked out!");
+			
+			if (input.equalsIgnoreCase(arrayList1.get(i).getName())) {  // This tests to see if input is equal to the name of the item.
+			if (arrayList1.get(i).getStatus().contains(" ")) { // This tests status to see if it is checked out or not
+				if (arrayList1.get(i).getStatus().contains("checked out")) { // if book is checked out this is returned
+					System.out.println(arrayList1.get(i).getName() + " is already checked out!");
 					return arrayList1;
 				}
-				System.out.println("you checked out " + input);
-				arrayList1.remove(i);
+				System.out.println("you checked out " + input); // if status isnt set to checked out, this will change it to checked out
+				arrayList1.get(i).setStatus("checked out");
+				System.out.println(arrayList1.get(i).getStatus());
 				return arrayList1;
 			}
 
+		}
 		}
 
 		System.out.println("That wasn't an option!");
@@ -36,7 +38,16 @@ public class Catalog {
 		return arrayList1;
 	}
 	
+<<<<<<< HEAD
 	//This will allow us to read from the text file.  
+=======
+	
+	
+	
+	
+	
+	
+>>>>>>> c97e9f3a85616746d33382ece52ade6af3fe280f
 	public static void readFromFile(String nameOfFile) {
 		Path writeFile = Paths.get(nameOfFile);
 		File file = writeFile.toFile();
