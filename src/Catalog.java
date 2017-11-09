@@ -36,11 +36,7 @@ public class Catalog {
 		return arrayList1;
 	}
 	
-	
-	
-	
-	
-	
+	//This will allow us to read from the text file.  
 	public static void readFromFile(String nameOfFile) {
 		Path writeFile = Paths.get(nameOfFile);
 		File file = writeFile.toFile();
@@ -62,6 +58,7 @@ public class Catalog {
 		}
 	}
 	
+	//This method will allow us to transfer content from a text file into an ArrayList.  
 	public static void displayArrayListFromFile() {
 		BufferedReader bufReader = null;
 		try {
@@ -97,6 +94,7 @@ public class Catalog {
 					
 				System.out.println(listOfLines);
 	}
+	
 	
 	
 }
