@@ -101,5 +101,25 @@ public class Catalog {
 				System.out.println(listOfLines);
 	}
 	
+	public static ArrayList returnABook(String userChoice, ArrayList<LibraryItem> arrayList1) {
+		 userChoice = userChoice.toLowerCase();
+		 
+		 for(int i = 0; i < arrayList1.size(); i++) {
+			 
+			 if(userChoice.equalsIgnoreCase(arrayList1.get(i).getName())) {
+				 if(arrayList1.get(i).getStatus().contains("checked out")){
+					 arrayList1.get(i).setStatus(" ");
+					 System.out.println("Thank you for returning: " + arrayList1.get(i));
+				 }
+				 else {
+					 System.out.println("You can't return a book that has not been checked out.");
+				 }
+			 }
+			 
+	
+}
+		 return arrayList1;
+}
+
 	
 }
