@@ -132,12 +132,16 @@ public class Catalog {
 
 	public static ArrayList returnABook(String userChoice, ArrayList<Book> arrayList1) {
 		userChoice = userChoice.toLowerCase();
-
+		
+		//Goes through our entire book arraylist. 
 		for (int i = 0; i < arrayList1.size(); i++) {
-
+			//Checks to see if the user's selected book is the correct one and 
+			//if it's been checked out. If it's been checked out, it changes that book's status to 
+			//available and also resets the date.  
 			if (userChoice.equalsIgnoreCase(arrayList1.get(i).getName())) {
 				if (arrayList1.get(i).getStatus().contains("checked out")) {
-					arrayList1.get(i).setStatus(" ");
+					arrayList1.get(i).setStatus("Available");
+					arrayList1.get(i).setDate(" ");	
 					System.out.println("Thank you for returning: " + arrayList1.get(i));
 				} else {
 					System.out.println("You can't return a book that has not been checked out.");
