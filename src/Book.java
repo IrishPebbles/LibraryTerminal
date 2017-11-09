@@ -26,14 +26,8 @@ public class Book extends LibraryItem {
 		return null;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return "Book [author=" + author + ", name=" + name + ", idNum=" + idNum + ", status=" + status + date;
 	}
-	
-	
-
 }

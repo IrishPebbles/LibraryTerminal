@@ -2,13 +2,20 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Validator {
-	public static String getString(Scanner sc, String prompt) {
-		System.out.print(prompt);
-		String s = sc.next(); // read user entry
-		sc.nextLine(); // discard any other data entered on the line
-		return s;
+	// THIS METHOD WILL BE USED TO CHECK IF BOOKS ARE CHECKED OUT, AND THEN REMOVE IT IF IT ISN'T
+	public static void bookChecker(String prompt) {
+		prompt = prompt.toLowerCase();
+		int checkWords = prompt.split("checked").length -1;
+		if (checkWords > 0) {
+			System.out.println("This book is currently checked out, sorry");
+		}
+		
+		else {
+			System.out.println("You just checked out the book!");
+			//TODO remove from array code here
+		}
 	}
-
+	
 	/**
 	 * Gets a string, validates that it's y/n, then returns true or false. This is
 	 * useful when prompting the user to enter yes/no.
@@ -20,52 +27,33 @@ public class Validator {
 	 * @return true for yes and false for no
 	 */
 	
-	
-	// THIS METHOD WILL BE USED TO CHECK IF BOOKS ARE CHECKED OUT, AND THEN REMOVE IT IF IT ISN'T
-	public static void bookChecker(String prompt) {
-			prompt = prompt.toLowerCase();
-			int checkWords = prompt.split("checked").length -1;
-			if (checkWords > 0) {
-				System.out.println("This book is currently checked out, sorry");
-			}
-			
-			else {
-				System.out.println("You just checked out the book!");
-				//TODO remove from array code here
-			}
-				
-				
-		}
-	////////////////////////
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static boolean getYOrN(Scanner sc, String prompt) {
 		System.out.print(prompt);
-
+		
 		ArrayList<String> validOptions = new ArrayList<>();
 		validOptions.add("y");
 		validOptions.add("n");
 		validOptions.add("Y");
 		validOptions.add("N");
-
+		
 		String s = sc.next(); // read user entry
-
+		
 		while (!validOptions.contains(s)) {
 			System.out.println(
 					"You must enter one of the following options: " + validOptions.toString() + ". Please try again.");
 			s = sc.next();
 		}
-
+		
 		sc.nextLine(); // discard any other data entered on the line
-
+		
 		return s.equalsIgnoreCase("y");
+	}
+	
+	public static String getString(Scanner sc, String prompt) {
+		System.out.print(prompt);
+		String s = sc.next(); // read user entry
+		sc.nextLine(); // discard any other data entered on the line
+		return s;
 	}
 
 	public static String getValidString(Scanner sc, String prompt, ArrayList<String> validOptions) {
