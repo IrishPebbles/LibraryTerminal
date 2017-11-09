@@ -31,13 +31,13 @@ public class BookApp {
 		bookList.add(book1);
 		bookList.add(book2);
 		bookList.add(book3);
-		System.out.println("What book would you like to check out?");
+	/*	System.out.println("What book would you like to check out?");
 		userInput = scnr.nextLine();
 		Catalog.bookCheckout(userInput, bookList);
 		System.out.println(bookList);
+		*/
 		
-		
-		
+		Catalog.SearchTitle("starwars", bookList);
 		
 				
 				

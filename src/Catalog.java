@@ -57,14 +57,15 @@ public class Catalog {
 		String tempValue;
 		input = input.toLowerCase();
 		
-		for (int i = 0; i < list.size(); i++) {
+		for (i = 0; i < list.size(); i++) {
 			tempValue = list.get(i).getName();
-			if (tempValue.contains(input)) {
-			 System.out.println("Title: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
+
+			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
+				System.out.println("Title: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
 			}
+			
+			System.out.println("Your Search is complete.");
 		}
-		
-		System.out.println("Your Search is complete.");
 	}
 	
 	public static void SearchAuthor(String input, ArrayList<Book> list) {
@@ -73,8 +74,8 @@ public class Catalog {
 		
 		for (int i = 0; i < list.size(); i++) {
 			tempValue = list.get(i).getAuthor();
-			if (tempValue.contains(input)) {
-			 System.out.println("Title: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
+			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
+				System.out.println("Title: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
 			}
 		}
 		
