@@ -59,10 +59,10 @@ public class Catalog {
 			tempValue = list.get(i).getName();
 
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
-				System.out.println("Title: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
+				System.out.println("\nTitle: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
 			}
 		}
-		System.out.println("\nYour Search is complete.");
+		System.out.println("\nYour Search is complete.\n");
 	}
 
 	public static void SearchAuthor(String input, ArrayList<Book> list) {
@@ -72,11 +72,11 @@ public class Catalog {
 		for (int i = 0; i < list.size(); i++) {
 			tempValue = list.get(i).getAuthor();
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
-				System.out.println("Title: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
+				System.out.println("\nTitle: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
 			}
 		}
 
-		System.out.println("Your Search is complete.");
+		System.out.println("\nYour Search is complete.\n");
 	}
 
 	public static void readFromFile(String nameOfFile) {
