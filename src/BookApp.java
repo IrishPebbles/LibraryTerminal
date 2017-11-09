@@ -20,12 +20,12 @@ public class BookApp {
 		calendar.setTime(dateOfOrder);
 		calendar.add(Calendar.DAY_OF_YEAR, noOfDays); // adds the 2 weeks to the date for retrning
 		Date returnDate = calendar.getTime(); 
-		String returnTime = "Return " + returnDate.toString(); // creates the string for date to input
+		String returnTime = " Return " + returnDate.toString(); // creates the string for date to input
 		
 		System.out.println("Hello Books!");
 		System.out.println("Goodbye!");
 		Book book1 = new Book("StarWars", "101", "(Available)", " ", "George Lucas");
-		Book book2 = new Book("Harry potter", "102", "Checked out", returnTime, "J.K. Rowling");
+		Book book2 = new Book("Harry potter", "102", "(Checked out)", returnTime, "J.K. Rowling");
 		Book book3 = new Book("Lord of the Rings", "103", "(Available)", " ", "J. R. R. Tolkien");
 		ArrayList<Book> bookList = new ArrayList<>();
 		bookList.add(book1);
