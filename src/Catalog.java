@@ -61,9 +61,8 @@ public class Catalog {
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
 				System.out.println("Title: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
 			}
-
-			System.out.println("Your Search is complete.");
 		}
+		System.out.println("\nYour Search is complete.");
 	}
 
 	public static void SearchAuthor(String input, ArrayList<Book> list) {

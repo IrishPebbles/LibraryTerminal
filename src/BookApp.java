@@ -82,10 +82,10 @@ public class BookApp {
 				"Please select one of the options below.\n" 
 				+ "\t1. Display list of books\n"
 				+ "\t2. Search for a book by AUTHOR\n" 
-				+ "\t3. Search for a book by TITLE Keyword"
-				+ "\t4. Select a book from the list to check out" 
-				+ "\t5. Return a book" 
-				+ "\t6. Quit";
+				+ "\t3. Search for a book by TITLE Keyword\n"
+				+ "\t4. Select a book from the list to check out\n" 
+				+ "\t5. Return a book\n" 
+				+ "\t6. Quit\n";
 
 		return Validator.getInt(sc, prompt, 1, 6);
 	}
