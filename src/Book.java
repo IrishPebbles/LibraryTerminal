@@ -1,7 +1,12 @@
 
 public class Book extends LibraryItem {
+
 	private String author = " ";
 	
+	public Book(String name, String idNum, String status, String date) {
+		super(name, idNum, status, date);
+		this.author = author;
+	}
 	
 	/**
 	 * @return the author
@@ -15,5 +20,21 @@ public class Book extends LibraryItem {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+
+	@Override
+	public String LibraryItem() {
+		return null;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Book [author=" + author + ", name=" + name + ", idNum=" + idNum + ", status=" + status + ", date="
+				+ date + "]";
+	}
+	
+	
 
 }
