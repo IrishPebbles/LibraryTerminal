@@ -39,7 +39,33 @@ public class Catalog {
 	}
 	
 	
+	public static void SearchTitle(String input, ArrayList<Book> list) {
+		String tempValue;
+		input = input.toLowerCase();
+		
+		for (int i = 0; i < list.size(); i++) {
+			tempValue = list.get(i).getName();
+			if (tempValue.contains(input)) {
+			 System.out.println("Title: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
+			}
+		}
+		
+		System.out.println("Your Search is complete.");
+	}
 	
+	public static void SearchAuthor(String input, ArrayList<Book> list) {
+		String tempValue;
+		input = input.toLowerCase();
+		
+		for (int i = 0; i < list.size(); i++) {
+			tempValue = list.get(i).getAuthor();
+			if (tempValue.contains(input)) {
+			 System.out.println("Title: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
+			}
+		}
+		
+		System.out.println("Your Search is complete.");
+	}
 	
 	
 	
