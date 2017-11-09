@@ -11,7 +11,7 @@ public class Catalog {
 	
 	
 	// THIS METHOD IS TO DETERMINE IF A LIBRARY ITEM IS CHECKED OUT. IF NOT, TO CHECK IT OUT
-	public static ArrayList bookCheckout(String input, ArrayList<LibraryItem> arrayList1) {
+	public static ArrayList bookCheckout(String input, ArrayList<Book> arrayList1) {
 
 		input = input.toLowerCase();
 		
