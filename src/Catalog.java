@@ -57,7 +57,7 @@ public class Catalog {
 		String tempValue;
 		input = input.toLowerCase();
 		
-		for (i = 0; i < list.size(); i++) {
+		for (int i = 0; i < list.size(); i++) {
 			tempValue = list.get(i).getName();
 
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
