@@ -32,11 +32,11 @@ public class Catalog {
 				if (arrayList1.get(i).getStatus().contains("Available")) { // This tests status to see if it is checked
 																			// out or not
 
-					System.out.println("you checked out " + arrayList1.get(i).getName()); // if status isnt set to
+					System.out.println("\nYou checked out " + arrayList1.get(i).getName()); // if status isn't set to
 																							// change it to checked out
 					arrayList1.get(i).setStatus("Checked out");
 					arrayList1.get(i).setDate(returnTime);
-					System.out.println("Must return by:" + arrayList1.get(i).getdate());
+					System.out.println("Due Date:" + arrayList1.get(i).getdate());
 					return arrayList1;
 				}
 				if (arrayList1.get(i).getStatus().contains("Checked out")) { // if book is checked out this is returned
@@ -64,18 +64,14 @@ public class Catalog {
 			String line = reader.readLine();
 
 			while (line != null) {
-
 				String[] lineArr = line.split("/ "); // Grabs the information on the line up until the point of finding
 														// the back slash.
 														// Then adds it to the array list accordingly.
 				bookList.add(new Book(lineArr[0], lineArr[1], lineArr[2], lineArr[3], lineArr[4]));
-
 				line = reader.readLine(); // scnr.nextLine essentially, pushes to the next line
-
 			}
 			reader.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return bookList;
@@ -95,7 +91,6 @@ public class Catalog {
 			out.close();
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			System.out.println("File not found here...");
 			e.printStackTrace();
 		}
@@ -106,8 +101,8 @@ public class Catalog {
 																	// status
 
 		for (int i = 0; i < arrayList1.size(); i++) {
-			System.out.print(String.format("%-30s", "Title: " + arrayList1.get(i).getName()));
-			System.out.print(String.format("%-30s", "Author: " + arrayList1.get(i).getAuthor()));
+			System.out.print(String.format("%-70s", "Title: " + arrayList1.get(i).getName()));
+			System.out.print(String.format("%-35s", "Author: " + arrayList1.get(i).getAuthor()));
 			System.out.print(String.format("%-30s", "This book is currently: " + arrayList1.get(i).getStatus() + "\n"));
 
 		}
@@ -122,10 +117,13 @@ public class Catalog {
 			tempValue = list.get(i).getName();
 
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
-				System.out.println("\nTitle: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
+				System.out.print(String.format("%-70s", "Title: " + list.get(i).getName()));
+				System.out.print(String.format("%-35s", "Author: " + list.get(i).getAuthor()));
+				System.out.print(String.format("%-30s", "Status: " + list.get(i).getStatus()));
+				System.out.println();
 			}
 		}
-		System.out.println("\nYour Search is complete.");
+		System.out.println("Your search is complete.");
 	}
 
 	public static void SearchAuthor(String input, ArrayList<Book> list) {
@@ -135,11 +133,14 @@ public class Catalog {
 		for (int i = 0; i < list.size(); i++) {
 			tempValue = list.get(i).getAuthor();
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
-				System.out.println("\nTitle: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
+				System.out.print(String.format("%-70s", "Title: " + list.get(i).getName()));
+				System.out.print(String.format("%-35s", "Author: " + list.get(i).getAuthor()));
+				System.out.print(String.format("%-30s", "Status: " + list.get(i).getStatus()));
+				System.out.println();
 			}
 		}
 
-		System.out.println("\nYour Search is complete.");
+		System.out.println("Your search is complete.");
 	}
 
 	public static void readFromFile(String nameOfFile) {

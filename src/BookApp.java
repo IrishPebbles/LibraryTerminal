@@ -18,6 +18,7 @@ public class BookApp {
 		while (userChoice != 6) {
 			
 			userChoice = menu(scnr, userChoice);
+			System.out.println();
 
 			switch (userChoice) {
 			case 1: //list books
@@ -26,11 +27,13 @@ public class BookApp {
 			case 2: // search by author
 				menuPrompt = "Please enter an AUTHOR search term\n";
 				userInput = Validator.getString(scnr, menuPrompt);
+				System.out.println();
 				Catalog.SearchAuthor(userInput, bookList);
 				break;
 			case 3: // search by name
 				menuPrompt = "Please enter a TITLE search term\n";
 				userInput = Validator.getString(scnr, menuPrompt);
+				System.out.println();
 				Catalog.SearchTitle(userInput, bookList);
 				break;
 			case 4: // book checkout
