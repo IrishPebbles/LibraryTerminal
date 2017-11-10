@@ -289,7 +289,6 @@ public class Catalog {
 
 		return arrayList1;
 	}
-<<<<<<< HEAD
 	
 	public static ArrayList addBook (String userChoice, ArrayList <Book> arrayList) {
 		Scanner sc = new Scanner(System.in);
