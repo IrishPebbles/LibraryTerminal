@@ -49,10 +49,10 @@ for (int i = 0; i < arrayList1.size(); i++) {
 				   // This tests to see if input is equal to the ID of the item.											
 				if (arrayList1.get(i).getStatus().contains("Available")) { // This tests status to see if it is checked out or not													
 					
-					System.out.println("you checked out " + arrayList1.get(i).getName()); // if status isnt set to change it to checked out																	
+					System.out.println("You checked out " + arrayList1.get(i).getName()); // if status isnt set to change it to checked out																	
 					arrayList1.get(i).setStatus("Checked out");
 					arrayList1.get(i).setDate(returnTime);
-					System.out.println("Must return by:" + arrayList1.get(i).getdate());
+					System.out.println("Return by:" + arrayList1.get(i).getdate());
 					return arrayList1;
 				}
 				if (arrayList1.get(i).getStatus().contains("Checked out")) { // if book is checked out this is returned														
