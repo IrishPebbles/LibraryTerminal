@@ -242,33 +242,55 @@ public class Catalog {
 	}
 
 	public static ArrayList returnABook(String userChoice, ArrayList<Book> arrayList1) {
-
 		for (int i = 0; i < arrayList1.size(); i++) {
 
-			if (userChoice.equalsIgnoreCase(arrayList1.get(i).getIdNum())) {
-				if (arrayList1.get(i).getStatus().contains("Checked out")) {
+			// This tests to see if input is equal to the ID of the item.
+			if (arrayList1.get(i).getIdNum().equalsIgnoreCase(userChoice)) {
+				// This tests status to see if it is checked out or not
+				if (arrayList1.get(i).getStatus().contains("Checked out")) { 
+					// if status isn't set to change it to available
+					System.out.println("You returned: " + arrayList1.get(i).getName()); 
 					arrayList1.get(i).setStatus("Available");
 					arrayList1.get(i).setDate(" ");
-					System.out.println("Thank you for returning: " + arrayList1.get(i).getName());
+					return arrayList1;
 				}
-			}
-			
-			return arrayList1;
-		}
-		for (int i = 0; i < arrayList1.size(); i++) {
-			/* Checks to see if the user's selected book is the correct one and if it's been checked out. 
-			 * If it's been checked out, it changes that book's status to available and also resets the date.
-			 */
-			if (userChoice.equalsIgnoreCase(arrayList1.get(i).getName())) {
-				if (arrayList1.get(i).getStatus().contains("Checked out")) {
-					arrayList1.get(i).setStatus("Available");
-					arrayList1.get(i).setDate(" ");
-					System.out.println("Thank you for returning: " + arrayList1.get(i).getName());
-				} else {
-					System.out.println("You can't return a book that has not been checked out.");
+				
+				// if book is available this is returned
+				if (arrayList1.get(i).getStatus().contains("Available")) { 
+					System.out.println(arrayList1.get(i).getName() + " cannot be returned.");
+					return arrayList1;
 				}
 			}
 		}
+
+		for (int i = 0; i < arrayList1.size(); i++) {
+
+			// This tests to see if input is equal to the name of the item.
+			if (arrayList1.get(i).getName().equalsIgnoreCase(userChoice)) {
+				// This tests status to see if it is checked out or not
+				if (arrayList1.get(i).getStatus().contains("Checked out")) { 
+
+					// if status isn't set to change it to available
+					System.out.println("\nYou returned: " + arrayList1.get(i).getName()); 
+					arrayList1.get(i).setStatus("Avaiable");
+					arrayList1.get(i).setDate(" ");
+					return arrayList1;
+				}
+				// if book is available this is returned
+				if (arrayList1.get(i).getStatus().contains("Available")) { 
+					System.out.println(arrayList1.get(i).getName() + " cannot be returned.");
+					return arrayList1;
+				}
+			}
+		}
+
+		System.out.println("That wasn't an option!");
+
 		return arrayList1;
 	}
-}
+		
+
+
+
+
+	}
