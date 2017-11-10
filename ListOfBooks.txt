@@ -1,6 +1,6 @@
 Pride and Prejudice/ Jane Austen / 101/ Available/  
 To Kill a Mockingbird/ Harper Lee/ 102/ Checked out/  Return Thu Nov 23 17:16:52 EST 2017
-The Catcher in the Rye/ J.D. Salinger/ 103/ Checked out/ Return Fri Nov 24 00:07:31 EST 2017
+The Catcher in the Rye/ J.D. Salinger/ 103/ Available/  
 The Hunger Games/ Suzanne Collins/ 104/ Available/  
 Twilight/ Stephenie Meyer/ 105/ Checked out/ Return Fri Nov 24 09:29:45 EST 2017
 The Odyssey/ Homer/ 106/ Available/  
