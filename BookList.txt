@@ -12,4 +12,5 @@ Clean Code: A Handbook of Agile Software Craftsmanship/ Martin, Robert C. / 111/
 iOS 7 App Development Essentials/ Smyth, Neil / 112/ Available/  
 iOS SDK Development/ Adamson, Chris / 113/ Available/  
 Learn to Program/ Pine, Chris / 114/ Available/  
-CISCO IOS in a Nutshell/ Boney, James / 115/ Available/ Checked out/ Return Fri Nov 24 09:29:45 EST 2017
+CISCO IOS in a Nutshell/ Boney, James / 115/ Available/ Checked out
+ 

@@ -15,7 +15,7 @@ public class BookApp {
 		
 		System.out.println("Welcome to The Grand Circus Library!");
 
-		while (userChoice != 6) {
+		while (userChoice != 7) {
 			
 			userChoice = menu(scnr, userChoice);
 			System.out.println();
@@ -53,7 +53,10 @@ public class BookApp {
 				userInput = scnr.nextLine();
 				Catalog.returnABook(userInput, bookList);
 				break;
-			case 6: // quit
+			case 6 : // Add a book
+				Catalog.addBook(userInput, bookList);
+				break;
+			case 7 : // quit
 				System.out.println("Thank you! Good-Bye!");
 				break;
 			default:
@@ -75,8 +78,9 @@ public class BookApp {
 						+ "\t3. Search for a book by TITLE Keyword\n"
 						+ "\t4. Select a book from the list to check out\n" 
 						+ "\t5. Return a book\n" 
-						+ "\t6. Quit\n";
+						+ "\t6. Add a book\n"
+						+ "\t7. Quit\n";
 
-		return Validator.getInt(sc, prompt, 1, 6);
+		return Validator.getInt(sc, prompt, 1, 7);
 	}
 }
