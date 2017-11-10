@@ -53,7 +53,7 @@ public class Catalog {
 
 	// reads from text file to write arraylist
 	public static ArrayList readFromFile(ArrayList<Book> bookList) {
-		Path writeFile = Paths.get("ListOfBooks.txt");
+		Path writeFile = Paths.get("BookList.txt");
 		File file = writeFile.toFile();
 
 		try {
@@ -83,7 +83,7 @@ public class Catalog {
 
 	// Writes to the text file from the arraylist
 	public static void writeToFile(ArrayList<Book> arrayList1) {
-		Path writeFile = Paths.get("ListOfBooks.txt");
+		Path writeFile = Paths.get("BookList.txt");
 		File file = writeFile.toFile();
 		try {
 

@@ -1,45 +1,15 @@
-1 
-Java Programming 
-Sarang, Poornachandra
-2 
-Beginning Java with Eclipse 
-Murach, Joel
-3 
-Javascript & JQuery: Interactive Front-End Web Development 
-Duckett, Jon
-4
-Visual Studio Team Foundation Server 2012: Adopting Agile Software Practices: From Backlong to Continuous Feedback
-Guckenheimer, Sam
-5 
-HTML & CSS: Design and Build Websites
-Duckett, Jon
-6
-Java Servlets and JSP
-Murach, Joel
-7
-Spring 4 for Developing Enterprise Applications: An End-to-End Approach
-Liu, Henry
-8
-Essential C# 3.0 For .NET Framework 3.5
-Michaelis, Mark
-9
-Ready-to-Run Visual Basic Algorithms
-Stephens, Rod
-10
-Java: The Complete Reference
-Schildt, Herbert
-11
-Clean Code: A Handbook of Agile Software Craftsmanship
-Martin, Robert C.
-12
-iOS 7 App Development Essentials
-Smyth, Neil
-13
-iOS SDK Development
-Adamson, Chris
-14
-Learn to Program
-Pine, Chris
-15
-CISCO IOS in a Nutshell
-Boney, James
+Java Programming/ Sarang, Poornachandra / 101/ Available/ 
+Spring 4 for Developing Enterprise Applications: An End-to-End Approach/ Liu, Henry / 102/ Available/ 
+Beginning Java with Eclipse/ Murach, Joel /103/ Available/ 
+Javascript & JQuery: Interactive Front-End Web Development/ Duckett, Jon / 104/ Available/
+Visual Studio Team Foundation Server 2012: Adopting Agile Software Practices: From Backlong to Continuous Feedback/ Guckenheimer, Sam / 105/ Available/ 
+HTML & CSS: Design and Build Websites/ Duckett, Jon / 106/ Available/
+Java Servlets and JSP/ Murach, Joel / 107/ Available/
+Essential C# 3.0 For .NET Framework 3.5/ Michaelis, Mark / 108/ Available/
+Ready-to-Run Visual Basic Algorithms/ Stephens, Rod / 109/ Available/
+Java: The Complete Reference/ Schildt, Herbert / 110 Available/
+Clean Code: A Handbook of Agile Software Craftsmanship/ Martin, Robert C. / 111/ Available/
+iOS 7 App Development Essentials/ Smyth, Neil / 112/ Available/
+iOS SDK Development/ Adamson, Chris / 113/ Available/
+Learn to Program/ Pine, Chris / 114/ Available/
+CISCO IOS in a Nutshell/ Boney, James / 115/Available/

@@ -12,23 +12,24 @@ public class BookApp {
 		Scanner scnr = new Scanner(System.in);
 
 		Catalog.readFromFile(bookList); // Bringing the text file into the array list
+		
+		System.out.println("Welcome to The Grand Circus Library!");
 
 		while (userChoice != 6) {
 			
 			userChoice = menu(scnr, userChoice);
 
-			
 			switch (userChoice) {
 			case 1: //list books
 				Catalog.libraryList(bookList);
 				break;
 			case 2: // search by author
-				menuPrompt = "Please enter search term\n";
+				menuPrompt = "Please enter an AUTHOR search term\n";
 				userInput = Validator.getString(scnr, menuPrompt);
 				Catalog.SearchAuthor(userInput, bookList);
 				break;
 			case 3: // search by name
-				menuPrompt = "Please enter search term\n";
+				menuPrompt = "Please enter a TITLE search term\n";
 				userInput = Validator.getString(scnr, menuPrompt);
 				Catalog.SearchTitle(userInput, bookList);
 				break;
@@ -52,8 +53,9 @@ public class BookApp {
 			}
 		}
 
-		Catalog.writeToFile(bookList); // Once finished, this writes the ArrayList into the text file with the updated
-										// information.
+		// Once finished, this writes the ArrayList into the text 
+		// file with the updated information.
+		Catalog.writeToFile(bookList); 
 	}
 
 	public static int menu(Scanner sc, int i) {
