@@ -293,12 +293,22 @@ public class Catalog {
 	
 	public static ArrayList addBook (String userChoice, ArrayList <Book> arrayList) {
 		Scanner sc = new Scanner(System.in);
+		String bookID = " ";
+		
 		System.out.println("Enter book title: ");
 		String title = sc.nextLine();
 		System.out.println("Enter book Author: ");
 		String author = sc.nextLine();
+		
+		
+		
 		System.out.println("Enter book ID: ");
-		String bookID = sc.nextLine();
+		bookID = sc.nextLine();
+		for (int i = 0; i < arrayList.size(); i++) {
+		while (bookID.equalsIgnoreCase(arrayList.get(i).getIdNum())) {
+			System.out.println("Sorry that book id is taken, try another one.");
+			bookID = sc.nextLine();
+		}}
 		String status = "Available";
 		String date = " ";
 		
