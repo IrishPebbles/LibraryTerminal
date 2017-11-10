@@ -3,7 +3,7 @@ public class Book extends LibraryItem {
 
 	private String author = " ";
 	
-	public Book(String name, String idNum, String status, String date, String author) {
+	public Book(String name, String author, String idNum, String status, String date) {
 		super(name, idNum, status, date);
 		this.author = author;
 	}
@@ -28,6 +28,6 @@ public class Book extends LibraryItem {
 
 	@Override
 	public String toString() {
-		return "Book [author=" + author + ", name=" + name + ", idNum=" + idNum + ", status=" + status + date;
+		return name + "/ "+ author +"/ " + idNum + "/ " + status + "/ " + date;
 	}
 }

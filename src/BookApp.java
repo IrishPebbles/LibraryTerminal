@@ -1,3 +1,9 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,31 +16,12 @@ public class BookApp {
 		String userInput = " "; // string to accept user input
 		String menuPrompt = " ";
 		int userChoice = 0; 	// user menu selection
-		int noOfDays = 14; // 2 week return time
-		
 		ArrayList<Book> bookList = new ArrayList<>();
 		Scanner scnr = new Scanner(System.in);
-		Date dateOfOrder = new Date();
+				
+		Catalog.readFromFile(bookList); // Bringing the text file into the array list
 
-		Calendar calendar = Calendar.getInstance();
-		calendar.setTime(dateOfOrder);
-		calendar.add(Calendar.DAY_OF_YEAR, noOfDays); // adds the 2 weeks to the date for retrning
-		Date returnDate = calendar.getTime();
-		String returnTime = " Return " + returnDate.toString(); // creates the string for date to input
-
-		Book book1 = new Book("StarWars", "101", "(Available)", " ", "George Lucas");
-		Book book2 = new Book("Harry potter", "102", "(Checked out)", returnTime, "J.K. Rowling");
-		Book book3 = new Book("Lord of the Rings", "103", "(Available)", " ", "J. R. R. Tolkien");
-		bookList.add(book1);
-		bookList.add(book2);
-		bookList.add(book3);
-		/*
-		 * System.out.println("What book would you like to check out?"); userInput =
-		 * scnr.nextLine(); Catalog.bookCheckout(userInput, bookList);
-		 * System.out.println(bookList);
-		 */
-
-
+		 
 		while (userChoice != 6) {
 			// 1. User Menu with 6 options
 			userChoice = menu(scnr, userChoice);
@@ -42,7 +29,7 @@ public class BookApp {
 			// 2. Switch to decide based on options
 			switch (userChoice) {
 			case 1:
-				// method that lists books
+				Catalog.libraryList(bookList);
 				break;
 			case 2:
 				menuPrompt = "Please enter search term\n";
@@ -55,13 +42,14 @@ public class BookApp {
 				Catalog.SearchTitle(userInput, bookList);
 				break;
 			case 4:
-				menuPrompt = "Please enter book name\n";
-				userInput = Validator.getString(scnr, menuPrompt);
+				
+				System.out.println("Please enter book name");
+				userInput = scnr.nextLine();
 				Catalog.bookCheckout(userInput, bookList);
 				break;
 			case 5:
-				menuPrompt = "Please select a book to return\n"; //TODO: figure out what this looks like
-				userInput = Validator.getString(scnr, menuPrompt);
+				System.out.println("Please select a book to return"); 
+				userInput = scnr.nextLine();
 				Catalog.returnABook(userInput, bookList);
 				break;
 			case 6:
@@ -73,8 +61,12 @@ public class BookApp {
 			}
 		}
 
-		// ?. Save back to text file
+		Catalog.writeToFile(bookList); //Once finished, this writes the ArrayList into the text file with the updated information.
 	}
+	
+	
+
+	
 
 	public static int menu(Scanner sc, int i) {
 

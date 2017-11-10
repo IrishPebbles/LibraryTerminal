@@ -49,6 +49,6 @@ public abstract class LibraryItem {
 
 	@Override
 	public String toString() {
-		return "LibraryItem [name=" + name + ", idNum=" + idNum + ", status=" + status;
+		return name + "/ " + idNum + "/ " + status + "/ " + date;
 	}
 }
