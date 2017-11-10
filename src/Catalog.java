@@ -284,6 +284,7 @@ public class Catalog {
 				}
 			}
 		}
+		
 
 		System.out.println("That wasn't an option!");
 
