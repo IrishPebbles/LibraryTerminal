@@ -13,25 +13,18 @@ import java.util.Date;
 
 public class Catalog {
 
-	
-	
 	public static void displayAvailableBooks(ArrayList<Book> arrayList1) {
-		for(int i = 0; i < arrayList1.size(); i++) {
-			if(arrayList1.get(i).getStatus().contains("Available")) {
-				System.out.print(String.format("%-13s","Bookid: " + arrayList1.get(i).getIdNum()));
+		for (int i = 0; i < arrayList1.size(); i++) {
+			if (arrayList1.get(i).getStatus().contains("Available")) {
+				System.out.print(String.format("%-13s", "Bookid: " + arrayList1.get(i).getIdNum()));
 				System.out.print(String.format("%-70s", "Title: " + arrayList1.get(i).getName()));
-				System.out.print(String.format("%-30s", "Status: " + arrayList1.get(i).getStatus() + "\n"));
-				
+				System.out.print(String.format("%-30s", "Status: " + arrayList1.get(i).getStatus()));
+				System.out.println();
 			}
 		}
 	}
-	
-	
-	
-	
-	
-	// THIS METHOD IS TO DETERMINE IF A LIBRARY ITEM IS CHECKED OUT. IF NOT, TO
-	// CHECK IT OUT
+
+	// THIS METHOD IS TO DETERMINE IF A LIBRARY ITEM IS CHECKED OUT. IF NOT, TO CHECK IT OUT
 	public static ArrayList bookCheckout(String input, ArrayList<Book> arrayList1) {
 		Date dateOfOrder;
 		dateOfOrder = new Date();
@@ -42,39 +35,44 @@ public class Catalog {
 		Date returnDate = calendar.getTime();
 		String returnTime = "Return " + returnDate.toString(); // creates the string for date to input
 
-for (int i = 0; i < arrayList1.size(); i++) {
-			
-			
+		for (int i = 0; i < arrayList1.size(); i++) {
+
+			// This tests to see if input is equal to the ID of the item.
 			if (arrayList1.get(i).getIdNum().equalsIgnoreCase(input)) {
-				   // This tests to see if input is equal to the ID of the item.											
-				if (arrayList1.get(i).getStatus().contains("Available")) { // This tests status to see if it is checked out or not													
-					
-					System.out.println("You checked out " + arrayList1.get(i).getName()); // if status isnt set to change it to checked out																	
+				// This tests status to see if it is checked out or not
+				if (arrayList1.get(i).getStatus().contains("Available")) { 
+					// if status isn't set to change it to checked out
+					System.out.println("You checked out " + arrayList1.get(i).getName()); 
 					arrayList1.get(i).setStatus("Checked out");
 					arrayList1.get(i).setDate(returnTime);
 					System.out.println("Return by:" + arrayList1.get(i).getdate());
 					return arrayList1;
 				}
-				if (arrayList1.get(i).getStatus().contains("Checked out")) { // if book is checked out this is returned														
+				
+				// if book is checked out this is returned
+				if (arrayList1.get(i).getStatus().contains("Checked out")) { 
 					System.out.println(arrayList1.get(i).getName() + " is already checked out!");
 					return arrayList1;
-				}}}
+				}
+			}
+		}
 
 		for (int i = 0; i < arrayList1.size(); i++) {
 
+			// This tests to see if input is equal to the name of the item.
 			if (arrayList1.get(i).getName().equalsIgnoreCase(input)) {
-				// This tests to see if input is equal to the name of the item.
-				if (arrayList1.get(i).getStatus().contains("Available")) { // This tests status to see if it is checked
-																			// out or not
+				// This tests status to see if it is checked out or not
+				if (arrayList1.get(i).getStatus().contains("Available")) { 
 
-					System.out.println("\nYou checked out " + arrayList1.get(i).getName()); // if status isn't set to
-																							// change it to checked out
+					// if status isn't set to change it to checked out
+					System.out.println("\nYou checked out " + arrayList1.get(i).getName()); 
 					arrayList1.get(i).setStatus("Checked out");
 					arrayList1.get(i).setDate(returnTime);
 					System.out.println("Due Date:" + arrayList1.get(i).getdate());
 					return arrayList1;
 				}
-				if (arrayList1.get(i).getStatus().contains("Checked out")) { // if book is checked out this is returned
+				// if book is checked out this is returned
+				if (arrayList1.get(i).getStatus().contains("Checked out")) { 
 					System.out.println(arrayList1.get(i).getName() + " is already checked out!");
 					return arrayList1;
 				}
@@ -99,11 +97,12 @@ for (int i = 0; i < arrayList1.size(); i++) {
 			String line = reader.readLine();
 
 			while (line != null) {
-				String[] lineArr = line.split("/ "); // Grabs the information on the line up until the point of finding
-														// the back slash.
-														// Then adds it to the array list accordingly.
+				// Grabs the information on the line up until the point of finding the back slash.
+				// Then adds it to the array list accordingly.
+				String[] lineArr = line.split("/ "); 
 				bookList.add(new Book(lineArr[0], lineArr[1], lineArr[2], lineArr[3], lineArr[4]));
-				line = reader.readLine(); // scnr.nextLine essentially, pushes to the next line
+				// scnr.nextLine essentially, pushes to the next line
+				line = reader.readLine(); 
 			}
 			reader.close();
 		} catch (IOException e) {
@@ -119,30 +118,28 @@ for (int i = 0; i < arrayList1.size(); i++) {
 		try {
 
 			PrintWriter out = new PrintWriter(new FileOutputStream(file));
-			for (Book book : arrayList1) { // iterates through the arraylist to out print each array on a line
+			// iterates through the arraylist to out print each array on a line
+			for (Book book : arrayList1) { 
 				out.println(book);
 			}
-
 			out.close();
 
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found here...");
 			e.printStackTrace();
 		}
-
 	}
 
-	public static void libraryList(ArrayList<Book> arrayList1) { // used to print list of current library books and
-																	// status
+	// used to print list of current library books and status
+	public static void libraryList(ArrayList<Book> arrayList1) { 
 
 		for (int i = 0; i < arrayList1.size(); i++) {
-			System.out.print(String.format("%-13s","Bookid: " + arrayList1.get(i).getIdNum()));
+			System.out.print(String.format("%-13s", "Bookid: " + arrayList1.get(i).getIdNum()));
 			System.out.print(String.format("%-70s", "Title: " + arrayList1.get(i).getName()));
 			System.out.print(String.format("%-35s", "Author: " + arrayList1.get(i).getAuthor()));
-			System.out.print(String.format("%-30s", "This book is currently: " + arrayList1.get(i).getStatus() + "\n"));
-
+			System.out.print(String.format("%-30s", "This book is currently: " + arrayList1.get(i).getStatus()));
+			System.out.println();
 		}
-
 	}
 
 	public static void SearchTitle(String input, ArrayList<Book> list) {
@@ -153,7 +150,7 @@ for (int i = 0; i < arrayList1.size(); i++) {
 			tempValue = list.get(i).getName();
 
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
-				System.out.print(String.format("%-13s","Bookid: " + list.get(i).getIdNum()));
+				System.out.print(String.format("%-13s", "Bookid: " + list.get(i).getIdNum()));
 				System.out.print(String.format("%-70s", "Title: " + list.get(i).getName()));
 				System.out.print(String.format("%-35s", "Author: " + list.get(i).getAuthor()));
 				System.out.print(String.format("%-30s", "Status: " + list.get(i).getStatus()));
@@ -170,7 +167,7 @@ for (int i = 0; i < arrayList1.size(); i++) {
 		for (int i = 0; i < list.size(); i++) {
 			tempValue = list.get(i).getAuthor();
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
-				System.out.print(String.format("%-13s","Bookid: " + list.get(i).getIdNum()));
+				System.out.print(String.format("%-13s", "Bookid: " + list.get(i).getIdNum()));
 				System.out.print(String.format("%-70s", "Title: " + list.get(i).getName()));
 				System.out.print(String.format("%-35s", "Author: " + list.get(i).getAuthor()));
 				System.out.print(String.format("%-30s", "Status: " + list.get(i).getStatus()));
@@ -195,8 +192,7 @@ for (int i = 0; i < arrayList1.size(); i++) {
 				line = reader.readLine();
 			}
 			reader.close();
-		} catch (IOException e) { // IO Exception is the parent exception and will automatically handle the
-									// FileNotFound Exception.
+		} catch (IOException e) { 
 			e.printStackTrace();
 		}
 	}
@@ -231,36 +227,38 @@ for (int i = 0; i < arrayList1.size(); i++) {
 
 		System.out.println(listOfLines);
 	}
-	
-	//This method displays a list of Checked Out Books.  The user can select a book from the list to return.  
+
+	// This method displays a list of Checked Out Books. The user can select from
+	// this list to choose which book to return.
 	public static void displayCheckedOutBooks(ArrayList<Book> arrayList1) {
-		for(int i = 0; i < arrayList1.size(); i++) {
-			if(arrayList1.get(i).getStatus().contains("Checked out")) {
-				System.out.print(String.format("%-13s","Bookid: " + arrayList1.get(i).getIdNum()));
+		for (int i = 0; i < arrayList1.size(); i++) {
+			if (arrayList1.get(i).getStatus().contains("Checked out")) {
+				System.out.print(String.format("%-13s", "Bookid: " + arrayList1.get(i).getIdNum()));
 				System.out.print(String.format("%-70s", "Title: " + arrayList1.get(i).getName()));
 				System.out.print(String.format("%-30s", "Status: " + arrayList1.get(i).getStatus()));
-				System.out.print(String.format("%-30s", "This book is due on: " + arrayList1.get(i).getdate() + "\n"));	
+				System.out.print(String.format("%-30s", "This book is due on: " + arrayList1.get(i).getdate() + "\n"));
 			}
 		}
 	}
-	
+
 	public static ArrayList returnABook(String userChoice, ArrayList<Book> arrayList1) {
-		for (int j = 0; j < arrayList1.size(); j++) {
-			
-			if (userChoice.equalsIgnoreCase(arrayList1.get(j).getIdNum())) {
-				if (arrayList1.get(j).getStatus().contains("Checked out")) {
-					arrayList1.get(j).setStatus("Available");
-					arrayList1.get(j).setDate(" ");
+
+		for (int i = 0; i < arrayList1.size(); i++) {
+
+			if (userChoice.equalsIgnoreCase(arrayList1.get(i).getIdNum())) {
+				if (arrayList1.get(i).getStatus().contains("Checked out")) {
+					arrayList1.get(i).setStatus("Available");
+					arrayList1.get(i).setDate(" ");
 					System.out.println("Thank you for returning: " + arrayList1.get(i).getName());
 				}
 			}
+			
 			return arrayList1;
-			}
+		}
 		for (int i = 0; i < arrayList1.size(); i++) {
-			// Checks to see if the user's selected book is the correct one and
-			// if it's been checked out. If it's been checked out, it changes that book's
-			// status to
-			// available and also resets the date.
+			/* Checks to see if the user's selected book is the correct one and if it's been checked out. 
+			 * If it's been checked out, it changes that book's status to available and also resets the date.
+			 */
 			if (userChoice.equalsIgnoreCase(arrayList1.get(i).getName())) {
 				if (arrayList1.get(i).getStatus().contains("Checked out")) {
 					arrayList1.get(i).setStatus("Available");
