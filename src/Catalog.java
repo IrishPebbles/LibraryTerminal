@@ -316,6 +316,7 @@ public class Catalog {
 		System.out.println("You added: Title: " + title + " Author: " + author);
 		
 		return arrayList;
-	}
 }
+	
+}	
 
