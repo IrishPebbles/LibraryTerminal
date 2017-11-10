@@ -13,6 +13,23 @@ import java.util.Date;
 
 public class Catalog {
 
+	
+	
+	public static void displayAvailableBooks(ArrayList<Book> arrayList1) {
+		for(int i = 0; i < arrayList1.size(); i++) {
+			if(arrayList1.get(i).getStatus().contains("Available")) {
+				System.out.print(String.format("%-13s","Bookid: " + arrayList1.get(i).getIdNum()));
+				System.out.print(String.format("%-70s", "Title: " + arrayList1.get(i).getName()));
+				System.out.print(String.format("%-30s", "Status: " + arrayList1.get(i).getStatus() + "\n"));
+				
+			}
+		}
+	}
+	
+	
+	
+	
+	
 	// THIS METHOD IS TO DETERMINE IF A LIBRARY ITEM IS CHECKED OUT. IF NOT, TO
 	// CHECK IT OUT
 	public static ArrayList bookCheckout(String input, ArrayList<Book> arrayList1) {
@@ -24,6 +41,24 @@ public class Catalog {
 		calendar.add(Calendar.DAY_OF_YEAR, noOfDays); // adds the 2 weeks to the date for retrning
 		Date returnDate = calendar.getTime();
 		String returnTime = "Return " + returnDate.toString(); // creates the string for date to input
+
+for (int i = 0; i < arrayList1.size(); i++) {
+			
+			
+			if (arrayList1.get(i).getIdNum().equalsIgnoreCase(input)) {
+				   // This tests to see if input is equal to the ID of the item.											
+				if (arrayList1.get(i).getStatus().contains("Available")) { // This tests status to see if it is checked out or not													
+					
+					System.out.println("you checked out " + arrayList1.get(i).getName()); // if status isnt set to change it to checked out																	
+					arrayList1.get(i).setStatus("Checked out");
+					arrayList1.get(i).setDate(returnTime);
+					System.out.println("Must return by:" + arrayList1.get(i).getdate());
+					return arrayList1;
+				}
+				if (arrayList1.get(i).getStatus().contains("Checked out")) { // if book is checked out this is returned														
+					System.out.println(arrayList1.get(i).getName() + " is already checked out!");
+					return arrayList1;
+				}}}
 
 		for (int i = 0; i < arrayList1.size(); i++) {
 
@@ -101,6 +136,7 @@ public class Catalog {
 																	// status
 
 		for (int i = 0; i < arrayList1.size(); i++) {
+			System.out.print(String.format("%-13s","Bookid: " + arrayList1.get(i).getIdNum()));
 			System.out.print(String.format("%-70s", "Title: " + arrayList1.get(i).getName()));
 			System.out.print(String.format("%-35s", "Author: " + arrayList1.get(i).getAuthor()));
 			System.out.print(String.format("%-30s", "This book is currently: " + arrayList1.get(i).getStatus() + "\n"));
@@ -117,6 +153,7 @@ public class Catalog {
 			tempValue = list.get(i).getName();
 
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
+				System.out.print(String.format("%-13s","Bookid: " + list.get(i).getIdNum()));
 				System.out.print(String.format("%-70s", "Title: " + list.get(i).getName()));
 				System.out.print(String.format("%-35s", "Author: " + list.get(i).getAuthor()));
 				System.out.print(String.format("%-30s", "Status: " + list.get(i).getStatus()));
@@ -133,6 +170,7 @@ public class Catalog {
 		for (int i = 0; i < list.size(); i++) {
 			tempValue = list.get(i).getAuthor();
 			if (tempValue.toLowerCase().contains(input.toLowerCase())) {
+				System.out.print(String.format("%-13s","Bookid: " + list.get(i).getIdNum()));
 				System.out.print(String.format("%-70s", "Title: " + list.get(i).getName()));
 				System.out.print(String.format("%-35s", "Author: " + list.get(i).getAuthor()));
 				System.out.print(String.format("%-30s", "Status: " + list.get(i).getStatus()));
@@ -198,7 +236,8 @@ public class Catalog {
 	public static void displayCheckedOutBooks(ArrayList<Book> arrayList1) {
 		for(int i = 0; i < arrayList1.size(); i++) {
 			if(arrayList1.get(i).getStatus().contains("Checked out")) {
-				System.out.print(String.format("%-30s", "Title: " + arrayList1.get(i).getName()));
+				System.out.print(String.format("%-13s","Bookid: " + arrayList1.get(i).getIdNum()));
+				System.out.print(String.format("%-70s", "Title: " + arrayList1.get(i).getName()));
 				System.out.print(String.format("%-30s", "Status: " + arrayList1.get(i).getStatus()));
 				System.out.print(String.format("%-30s", "This book is due on: " + arrayList1.get(i).getdate() + "\n"));	
 			}
@@ -206,8 +245,16 @@ public class Catalog {
 	}
 	
 	public static ArrayList returnABook(String userChoice, ArrayList<Book> arrayList1) {
-
-		// Goes through our entire book arraylist.
+		for (int i = 0; i < arrayList1.size(); i++) {
+			
+			if (userChoice.equalsIgnoreCase(arrayList1.get(i).getIdNum())) {
+				if (arrayList1.get(i).getStatus().contains("Checked out")) {
+					arrayList1.get(i).setStatus("Available");
+					arrayList1.get(i).setDate(" ");
+					System.out.println("Thank you for returning: " + arrayList1.get(i).getName());
+				}}
+			return arrayList1;
+			}
 		for (int i = 0; i < arrayList1.size(); i++) {
 			// Checks to see if the user's selected book is the correct one and
 			// if it's been checked out. If it's been checked out, it changes that book's

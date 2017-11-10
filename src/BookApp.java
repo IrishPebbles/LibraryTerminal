@@ -38,12 +38,18 @@ public class BookApp {
 				break;
 			case 4: // book checkout
 
-				System.out.println("Please enter book name");
+				
+				Catalog.displayAvailableBooks(bookList);
+				System.out.println();
+				System.out.println("Please enter book name or BookID to check out");
 				userInput = scnr.nextLine();
 				Catalog.bookCheckout(userInput, bookList);
 				break;
 			case 5: // book return
-				System.out.println("Please select a book to return");
+				
+				Catalog.displayCheckedOutBooks(bookList);
+				System.out.println();
+				System.out.println("Please enter book name or BookID to return");
 				userInput = scnr.nextLine();
 				Catalog.returnABook(userInput, bookList);
 				break;
