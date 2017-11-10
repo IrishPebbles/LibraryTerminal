@@ -288,9 +288,8 @@ public class Catalog {
 
 		return arrayList1;
 	}
-		
+	
 
 
 
-
-	}
+}
