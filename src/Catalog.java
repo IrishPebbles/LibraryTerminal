@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Scanner;
 
 public class Catalog {
 
@@ -272,7 +273,7 @@ public class Catalog {
 
 					// if status isn't set to change it to available
 					System.out.println("\nYou returned: " + arrayList1.get(i).getName()); 
-					arrayList1.get(i).setStatus("Avaiable");
+					arrayList1.get(i).setStatus("Available");
 					arrayList1.get(i).setDate(" ");
 					return arrayList1;
 				}
@@ -283,13 +284,29 @@ public class Catalog {
 				}
 			}
 		}
+		
 
 		System.out.println("That wasn't an option!");
 
 		return arrayList1;
 	}
 	
-
-
-
+	public static ArrayList addBook (String userChoice, ArrayList <Book> arrayList) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter book title: ");
+		String title = sc.nextLine();
+		System.out.println("Enter book Author: ");
+		String author = sc.nextLine();
+		System.out.println("Enter book ID: ");
+		String bookID = sc.nextLine();
+		String status = "Available";
+		String date = " ";
+		
+		arrayList.add(new Book(title, author, bookID, status, date));
+		System.out.println("You added: Title: " + title + " Author: " + author);
+		
+		return arrayList;
 }
+	
+}	
+
