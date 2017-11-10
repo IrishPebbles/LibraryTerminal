@@ -125,7 +125,7 @@ public class Catalog {
 				System.out.println("\nTitle: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
 			}
 		}
-		System.out.println("\nYour Search is complete.\n");
+		System.out.println("\nYour Search is complete.");
 	}
 
 	public static void SearchAuthor(String input, ArrayList<Book> list) {
@@ -139,7 +139,7 @@ public class Catalog {
 			}
 		}
 
-		System.out.println("\nYour Search is complete.\n");
+		System.out.println("\nYour Search is complete.");
 	}
 
 	public static void readFromFile(String nameOfFile) {
