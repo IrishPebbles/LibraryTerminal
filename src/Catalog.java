@@ -232,7 +232,7 @@ for (int i = 0; i < arrayList1.size(); i++) {
 		System.out.println(listOfLines);
 	}
 	
-	//This method displays a list of Checked Out Books.  The user can select from this list to choose which book to return.  
+	//This method displays a list of Checked Out Books.  The user can select a book from the list to return.  
 	public static void displayCheckedOutBooks(ArrayList<Book> arrayList1) {
 		for(int i = 0; i < arrayList1.size(); i++) {
 			if(arrayList1.get(i).getStatus().contains("Checked out")) {
@@ -245,14 +245,15 @@ for (int i = 0; i < arrayList1.size(); i++) {
 	}
 	
 	public static ArrayList returnABook(String userChoice, ArrayList<Book> arrayList1) {
-		for (int i = 0; i < arrayList1.size(); i++) {
+		for (int j = 0; j < arrayList1.size(); j++) {
 			
-			if (userChoice.equalsIgnoreCase(arrayList1.get(i).getIdNum())) {
-				if (arrayList1.get(i).getStatus().contains("Checked out")) {
-					arrayList1.get(i).setStatus("Available");
-					arrayList1.get(i).setDate(" ");
+			if (userChoice.equalsIgnoreCase(arrayList1.get(j).getIdNum())) {
+				if (arrayList1.get(j).getStatus().contains("Checked out")) {
+					arrayList1.get(j).setStatus("Available");
+					arrayList1.get(j).setDate(" ");
 					System.out.println("Thank you for returning: " + arrayList1.get(i).getName());
-				}}
+				}
+			}
 			return arrayList1;
 			}
 		for (int i = 0; i < arrayList1.size(); i++) {

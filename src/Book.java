@@ -3,11 +3,14 @@ public class Book extends LibraryItem {
 
 	private String author = " ";
 
+	//overloaded constructor
 	public Book(String name, String author, String idNum, String status, String date) {
 		super(name, idNum, status, date);
 		this.author = author;
 	}
 
+	
+	//all of our getters and setters
 	/**
 	 * @return the author
 	 */
@@ -28,6 +31,7 @@ public class Book extends LibraryItem {
 		return null;
 	}
 
+	//overriding our toString method
 	@Override
 	public String toString() {
 		return name + "/ " + author + "/ " + idNum + "/ " + status + "/ " + date;

@@ -7,6 +7,7 @@ public abstract class LibraryItem {
 
 	public abstract String LibraryItem();
 
+	//overloaded constructor
 	public LibraryItem(String name, String idNum, String status, String date) {
 		super();
 		this.name = name;
@@ -15,6 +16,7 @@ public abstract class LibraryItem {
 		this.date = date;
 	}
 
+	//all of our getters and setters
 	public String getName() {
 		return name;
 	}
@@ -47,6 +49,7 @@ public abstract class LibraryItem {
 		return date;
 	}
 
+	//overriding our toString method
 	@Override
 	public String toString() {
 		return name + "/ " + idNum + "/ " + status + "/ " + date;
