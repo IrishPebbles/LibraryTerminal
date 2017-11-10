@@ -1,12 +1,4 @@
-1import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Scanner;
 
 public class BookApp {
@@ -20,23 +12,24 @@ public class BookApp {
 		Scanner scnr = new Scanner(System.in);
 
 		Catalog.readFromFile(bookList); // Bringing the text file into the array list
+		
+		System.out.println("Welcome to The Grand Circus Library!");
 
 		while (userChoice != 6) {
 			
 			userChoice = menu(scnr, userChoice);
 
-			
 			switch (userChoice) {
 			case 1: //list books
 				Catalog.libraryList(bookList);
 				break;
 			case 2: // search by author
-				menuPrompt = "Please enter search term\n";
+				menuPrompt = "Please enter an AUTHOR search term\n";
 				userInput = Validator.getString(scnr, menuPrompt);
 				Catalog.SearchAuthor(userInput, bookList);
 				break;
 			case 3: // search by name
-				menuPrompt = "Please enter search term\n";
+				menuPrompt = "Please enter a TITLE search term\n";
 				userInput = Validator.getString(scnr, menuPrompt);
 				Catalog.SearchTitle(userInput, bookList);
 				break;
@@ -60,15 +53,20 @@ public class BookApp {
 			}
 		}
 
-		Catalog.writeToFile(bookList); // Once finished, this writes the ArrayList into the text file with the updated
-										// information.
+		// Once finished, this writes the ArrayList into the text 
+		// file with the updated information.
+		Catalog.writeToFile(bookList); 
 	}
 
 	public static int menu(Scanner sc, int i) {
 
-		String prompt = "Please select one of the options below.\n" + "\t1. Display list of books\n"
-				+ "\t2. Search for a book by AUTHOR\n" + "\t3. Search for a book by TITLE Keyword\n"
-				+ "\t4. Select a book from the list to check out\n" + "\t5. Return a book\n" + "\t6. Quit\n";
+		String prompt = "\nPlease select one of the options below.\n" 
+						+ "\t1. Display list of books\n"
+						+ "\t2. Search for a book by AUTHOR\n" 
+						+ "\t3. Search for a book by TITLE Keyword\n"
+						+ "\t4. Select a book from the list to check out\n" 
+						+ "\t5. Return a book\n" 
+						+ "\t6. Quit\n";
 
 		return Validator.getInt(sc, prompt, 1, 6);
 	}
