@@ -53,7 +53,7 @@ public class Catalog {
 
 	// reads from text file to write arraylist
 	public static ArrayList readFromFile(ArrayList<Book> bookList) {
-		Path writeFile = Paths.get("ListOfBooks.txt");
+		Path writeFile = Paths.get("BookList.txt");
 		File file = writeFile.toFile();
 
 		try {
@@ -83,7 +83,7 @@ public class Catalog {
 
 	// Writes to the text file from the arraylist
 	public static void writeToFile(ArrayList<Book> arrayList1) {
-		Path writeFile = Paths.get("ListOfBooks.txt");
+		Path writeFile = Paths.get("BookList.txt");
 		File file = writeFile.toFile();
 		try {
 
@@ -125,7 +125,7 @@ public class Catalog {
 				System.out.println("\nTitle: " + list.get(i).getName() + ", Author: " + list.get(i).getAuthor());
 			}
 		}
-		System.out.println("\nYour Search is complete.\n");
+		System.out.println("\nYour Search is complete.");
 	}
 
 	public static void SearchAuthor(String input, ArrayList<Book> list) {
@@ -139,7 +139,7 @@ public class Catalog {
 			}
 		}
 
-		System.out.println("\nYour Search is complete.\n");
+		System.out.println("\nYour Search is complete.");
 	}
 
 	public static void readFromFile(String nameOfFile) {
@@ -192,7 +192,18 @@ public class Catalog {
 
 		System.out.println(listOfLines);
 	}
-
+	
+	//This method displays a list of Checked Out Books.  The user can select from this list to choose which book to return.  
+	public static void displayCheckedOutBooks(ArrayList<Book> arrayList1) {
+		for(int i = 0; i < arrayList1.size(); i++) {
+			if(arrayList1.get(i).getStatus().contains("Checked out")) {
+				System.out.print(String.format("%-30s", "Title: " + arrayList1.get(i).getName()));
+				System.out.print(String.format("%-30s", "Status: " + arrayList1.get(i).getStatus()));
+				System.out.print(String.format("%-30s", "This book is due on: " + arrayList1.get(i).getdate() + "\n"));	
+			}
+		}
+	}
+	
 	public static ArrayList returnABook(String userChoice, ArrayList<Book> arrayList1) {
 
 		// Goes through our entire book arraylist.
