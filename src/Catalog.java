@@ -272,7 +272,7 @@ public class Catalog {
 
 					// if status isn't set to change it to available
 					System.out.println("\nYou returned: " + arrayList1.get(i).getName()); 
-					arrayList1.get(i).setStatus("Avaiable");
+					arrayList1.get(i).setStatus("Available");
 					arrayList1.get(i).setDate(" ");
 					return arrayList1;
 				}
