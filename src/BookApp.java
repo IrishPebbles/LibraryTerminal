@@ -1,3 +1,12 @@
+/*
+ * This is a program designed to allow a user to search a library catalog.
+ * The user can then choose from a number of options how to interact with the 
+ * terminal.
+ * 
+ * Designed by: Lena Hand, Joseph Garza, Siddique Khatri
+ * 10*November*2017
+ */
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
